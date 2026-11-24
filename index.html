@@ -36,12 +36,13 @@ h1{font-size:clamp(27px,6vw,45px);line-height:1.12;color:var(--gold);margin:12px
 #giftArea{display:none;margin-top:8px}
 #giftArea.show{display:block}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;max-width:650px;margin:15px auto 0}
-.gift{border:1px solid #ffcf6270;border-radius:21px;padding:17px 12px 15px;min-height:190px;background:linear-gradient(145deg,#39234d,#171021);color:#fff;cursor:pointer;box-shadow:0 10px 28px #0005;position:relative;overflow:hidden;opacity:0;transform:translateY(38px) scale(.78);animation:boxCome .65s cubic-bezier(.2,.8,.2,1) forwards}
+/* Gift अब असली <a> लिंक है (पहले button था) */
+.gift{display:block;text-decoration:none;border:1px solid #ffcf6270;border-radius:21px;padding:17px 12px 15px;min-height:190px;background:linear-gradient(145deg,#39234d,#171021);color:#fff;cursor:pointer;box-shadow:0 10px 28px #0005;position:relative;overflow:hidden;opacity:0;transform:translateY(38px) scale(.78);animation:boxCome .65s cubic-bezier(.2,.8,.2,1) forwards;transition:filter .15s}
 .gift:nth-child(1){animation-delay:.05s}.gift:nth-child(2){animation-delay:.18s}.gift:nth-child(3){animation-delay:.31s}.gift:nth-child(4){animation-delay:.44s}
 @keyframes boxCome{to{opacity:1;transform:translateY(0) scale(1)}}
-.gift:before{content:"";position:absolute;inset:0 auto 0 -70%;width:50%;background:linear-gradient(90deg,transparent,#ffffff20,transparent);transform:skewX(-20deg);animation:shine 3s infinite}
+.gift:before{content:"";position:absolute;inset:0 auto 0 -70%;width:50%;background:linear-gradient(90deg,transparent,#ffffff20,transparent);transform:skewX(-20deg);animation:shine 3s infinite;pointer-events:none}
 @keyframes shine{to{left:140%}}
-.gift:active{transform:scale(.96)}
+.gift:active{filter:brightness(1.25)}
 .logoWrap{width:67px;height:67px;margin:0 auto 8px;border-radius:18px;background:#fff;display:grid;place-items:center;padding:7px;box-shadow:0 5px 18px #0005}
 .logoWrap img{width:100%;height:100%;object-fit:contain;border-radius:12px}
 .fallback{font-size:35px;display:none}
@@ -77,34 +78,28 @@ h1{font-size:clamp(27px,6vw,45px);line-height:1.12;color:var(--gold);margin:12px
   <h2 class="stageTitle">🎉 आपके चार गिफ्ट तैयार हैं!</h2>
   <p class="stageHint">किसी एक बॉक्स पर टैप करें — संबंधित वेबसाइट सीधे खुल जाएगी।</p>
   <div class="grid">
-   <button class="gift" data-index="0" type="button">
-    <span class="logoWrap"><img src="https://www.google.com/s2/favicons?domain=rj-smart-billing.onrender.com&sz=128" alt="RJ Smart Billing logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">🧾</span></span>
-    <div class="giftNo">GIFT 01</div><h3>RJ Smart Billing</h3><p>Billing & daily account management</p><span class="tap">TAP TO OPEN ↗</span>
-   </button>
-   <button class="gift" data-index="1" type="button">
-    <span class="logoWrap"><img src="https://www.google.com/s2/favicons?domain=rj-intraday-trading.onrender.com&sz=128" alt="RJ Intraday Trading logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">📈</span></span>
+   <a class="gift" href="https://rj-smart-billing.onrender.com/">
+    <span class="logoWrap" data-local="logos/billing.png" data-domain="rj-smart-billing.onrender.com"><img alt="RJ Smart Billing logo"><span class="fallback">🧾</span></span>
+    <div class="giftNo">GIFT 01</div><h3>RJ Smart Billing</h3><p>Billing &amp; daily account management</p><span class="tap">TAP TO OPEN ↗</span>
+   </a>
+   <a class="gift" href="https://rj-intraday-trading.onrender.com/">
+    <span class="logoWrap" data-local="logos/trading.png" data-domain="rj-intraday-trading.onrender.com"><img alt="RJ Intraday Trading logo"><span class="fallback">📈</span></span>
     <div class="giftNo">GIFT 02</div><h3>RJ Intraday Trading</h3><p>Stock market learning course</p><span class="tap">TAP TO OPEN ↗</span>
-   </button>
-   <button class="gift" data-index="2" type="button">
-    <span class="logoWrap"><img src="https://www.google.com/s2/favicons?domain=rajan03jha.github.io&sz=128" alt="QR Code Saathi logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">🔳</span></span>
+   </a>
+   <a class="gift" href="https://rajan03jha.github.io/Qr-Code-Saathi-/">
+    <span class="logoWrap" data-local="logos/qr.png" data-domain="rajan03jha.github.io"><img alt="QR Code Saathi logo"><span class="fallback">🔳</span></span>
     <div class="giftNo">GIFT 03</div><h3>QR Code Saathi</h3><p>QR code tools and utilities</p><span class="tap">TAP TO OPEN ↗</span>
-   </button>
-   <button class="gift" data-index="3" type="button">
-    <span class="logoWrap"><img src="https://www.google.com/s2/favicons?domain=fire-safety-academy.onrender.com&sz=128" alt="Fire Safety Academy logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">🧯</span></span>
+   </a>
+   <a class="gift" href="https://fire-safety-academy.onrender.com/">
+    <span class="logoWrap" data-local="logos/fire.png" data-domain="fire-safety-academy.onrender.com"><img alt="Fire Safety Academy logo"><span class="fallback">🧯</span></span>
     <div class="giftNo">GIFT 04</div><h3>Fire Safety Academy</h3><p>Fire safety learning and precautions</p><span class="tap">TAP TO OPEN ↗</span>
-   </button>
+   </a>
   </div>
  </div>
 </section>
 <p class="footer">Made with ❤️ by Rajan Jha</p>
 </main>
 <script>
-const urls=[
- "https://rj-smart-billing.onrender.com/",
- "https://rj-intraday-trading.onrender.com/",
- "https://rajan03jha.github.io/Qr-Code-Saathi-/",
- "https://fire-safety-academy.onrender.com/"
-];
 const envelope=document.getElementById("envelopeButton");
 const giftArea=document.getElementById("giftArea");
 let opened=false;
@@ -115,13 +110,30 @@ envelope.addEventListener("click",()=>{
  document.getElementById("stageHint").textContent="अब अपनी पसंद के गिफ्ट बॉक्स पर टैप करें";
  setTimeout(()=>{envelope.style.display="none";giftArea.classList.add("show");burst();},550);
 });
-document.querySelectorAll(".gift").forEach(btn=>{
- btn.addEventListener("click",()=>{
-  const url=urls[Number(btn.dataset.index)];
-  // Direct same-tab navigation: no popup, no about:blank, no intermediate dialog.
-  window.location.assign(url);
- });
+
+/* LOGO LOADER
+   क्रम: 1) अपनी फ़ाइल logos/xxx.png  2) Google favicon  3) DuckDuckGo favicon  4) emoji
+   बाहरी favicon सर्विस जब साइट का आइकन नहीं मिलता तो छोटा (16px) डिफ़ॉल्ट globe भेज देती है,
+   इसलिए 32px से छोटी तस्वीर को "खराब" मानकर अगला स्रोत आज़माते हैं। */
+document.querySelectorAll(".logoWrap").forEach(box=>{
+ const img=box.querySelector("img"),fb=box.querySelector(".fallback"),d=box.dataset.domain;
+ const list=[
+  {u:box.dataset.local,local:true},
+  {u:"https://www.google.com/s2/favicons?domain="+d+"&sz=128"},
+  {u:"https://icons.duckduckgo.com/ip3/"+d+".ico"}
+ ];
+ let i=0;
+ function next(){
+  if(i>=list.length){img.remove();fb.style.display="block";return;}
+  const s=list[i++];img.dataset.local=s.local?"1":"";img.src=s.u;
+ }
+ img.onerror=next;
+ img.onload=()=>{
+  if(!img.dataset.local&&img.naturalWidth<32)next();
+ };
+ next();
 });
+
 function burst(){
  const c=document.getElementById("spark"),ctx=c.getContext("2d"),dpr=window.devicePixelRatio||1;
  c.width=innerWidth*dpr;c.height=innerHeight*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
