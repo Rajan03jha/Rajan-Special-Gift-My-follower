@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#120b20">
+<title>Special Gifts for My Followers | Rajan</title>
+<style>
+:root{--gold:#ffd36a;--gold2:#ffab45;--ink:#120b20;--muted:#d1c5dc}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:#fff;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:radial-gradient(ellipse at 50% 0%,#58336f 0,#211431 42%,#0b0812 100%);overflow-x:hidden}
+button,a{font:inherit}
+.wrap{width:min(900px,100%);margin:auto;padding:20px 15px 45px}
+header{text-align:center;padding:12px 8px 8px}
+.kicker{display:inline-block;padding:7px 13px;border:1px solid #ffd36a88;border-radius:99px;color:var(--gold);font-size:11px;letter-spacing:1.4px}
+h1{font-size:clamp(27px,6vw,45px);line-height:1.12;color:var(--gold);margin:12px 0 8px;text-shadow:0 0 22px #ffbd5555}
+.intro{color:#eee4f4;line-height:1.6;max-width:650px;margin:0 auto 14px;font-size:14px}
+.socials{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:12px auto 18px}
+.social{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:13px;text-decoration:none;color:white;font-weight:700;font-size:13px;background:linear-gradient(135deg,#833ab4,#c13584)}
+.social.second{background:linear-gradient(135deg,#f58529,#dd2a7b 55%,#8134af)}
+.social:active{transform:scale(.97)}
+.stage{margin:14px auto 0;min-height:370px;border:1px solid #ffffff24;border-radius:26px;background:linear-gradient(145deg,#ffffff0e,#ffffff05);box-shadow:0 18px 55px #0006;padding:20px 14px 24px;text-align:center;overflow:hidden}
+.stageTitle{font-size:18px;margin:0 0 5px}
+.stageHint{font-size:13px;color:var(--muted);margin:0 0 14px}
+.envelopeButton{border:0;background:transparent;cursor:pointer;display:block;margin:20px auto 8px;padding:10px;width:210px;height:205px;position:relative;transition:transform .2s}
+.envelopeButton:active{transform:scale(.96)}
+.envelope{position:absolute;left:22px;right:22px;bottom:24px;height:126px;border-radius:12px;background:linear-gradient(145deg,#ffdf8c,#d88b2e);box-shadow:0 12px 28px #0007;border:2px solid #ffe7a8}
+.envelope:before{content:"";position:absolute;inset:0;background:linear-gradient(32deg,transparent 49%,#fff0 50%),linear-gradient(148deg,transparent 49%,#fff2 50%);border-radius:10px}
+.flap{position:absolute;left:22px;right:22px;bottom:94px;height:95px;clip-path:polygon(0 0,100% 0,50% 100%);background:linear-gradient(180deg,#fff0b6,#f5b94e);transform-origin:50% 0;filter:drop-shadow(0 4px 4px #0003);z-index:2;transition:transform .65s ease}
+.seal{position:absolute;z-index:3;left:50%;bottom:72px;transform:translateX(-50%);width:43px;height:43px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff1a8,#c97820);display:grid;place-items:center;font-size:23px;box-shadow:0 3px 12px #6d351c88}
+.envText{position:absolute;z-index:4;left:0;right:0;bottom:2px;color:var(--gold);font-weight:800;font-size:13px;letter-spacing:1.2px}
+.envelopeButton.opened .flap{transform:rotateX(180deg) translateY(-7px)}
+.envelopeButton.opened .seal{opacity:0;transition:opacity .2s}
+.envelopeButton.opened{animation:envelopeLift .7s ease .25s both}
+@keyframes envelopeLift{to{transform:translateY(-15px) scale(.9);opacity:.18}}
+#giftArea{display:none;margin-top:8px}
+#giftArea.show{display:block}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;max-width:650px;margin:15px auto 0}
+.gift{border:1px solid #ffcf6270;border-radius:21px;padding:17px 12px 15px;min-height:190px;background:linear-gradient(145deg,#39234d,#171021);color:#fff;cursor:pointer;box-shadow:0 10px 28px #0005;position:relative;overflow:hidden;opacity:0;transform:translateY(38px) scale(.78);animation:boxCome .65s cubic-bezier(.2,.8,.2,1) forwards}
+.gift:nth-child(1){animation-delay:.05s}.gift:nth-child(2){animation-delay:.18s}.gift:nth-child(3){animation-delay:.31s}.gift:nth-child(4){animation-delay:.44s}
+@keyframes boxCome{to{opacity:1;transform:translateY(0) scale(1)}}
+.gift:before{content:"";position:absolute;inset:0 auto 0 -70%;width:50%;background:linear-gradient(90deg,transparent,#ffffff20,transparent);transform:skewX(-20deg);animation:shine 3s infinite}
+@keyframes shine{to{left:140%}}
+.gift:active{transform:scale(.96)}
+.logoWrap{width:67px;height:67px;margin:0 auto 8px;border-radius:18px;background:#fff;display:grid;place-items:center;padding:7px;box-shadow:0 5px 18px #0005}
+.logoWrap img{width:100%;height:100%;object-fit:contain;border-radius:12px}
+.fallback{font-size:35px;display:none}
+.giftNo{color:var(--gold);font-size:11px;letter-spacing:2px;font-weight:800}
+.gift h3{font-size:16px;margin:5px 0}
+.gift p{font-size:12px;line-height:1.4;color:var(--muted);margin:0}
+.tap{display:inline-block;margin-top:10px;color:var(--gold);font-size:11px;font-weight:900;letter-spacing:.7px}
+.footer{text-align:center;color:#a99eb6;font-size:12px;margin:18px 0 0}
+#spark{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9}
+@media(max-width:430px){.wrap{padding:16px 11px 32px}.stage{padding:17px 10px 20px;min-height:350px}.grid{gap:9px}.gift{padding:14px 8px;min-height:180px}.logoWrap{width:60px;height:60px}.social{font-size:12px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<canvas id="spark"></canvas>
+<main class="wrap">
+<header>
+ <span class="kicker">A LITTLE THANK YOU FROM RAJAN</span>
+ <h1>🎁 Special Gift for My Followers</h1>
+ <p class="intro">मेरे प्यारे Followers के लिए मेरी तरफ़ से चार खास ऐप गिफ्ट! ❤️<br>चाहें तो पहले मेरे Instagram पेज देखिए, फिर बीच में बने लिफाफे पर टैप करके अपना गिफ्ट खोलिए।</p>
+ <nav class="socials" aria-label="Instagram pages">
+  <a class="social" href="https://www.instagram.com/rajan03jha?lqvp=dTVuaTV6Yno4d2Ew" target="_blank" rel="noopener">📸 Follow @rajan03jha</a>
+  <a class="social second" href="https://www.instagram.com/rajan_jha_update03?evlk=NWoyOG4xMTFpdWd0" target="_blank" rel="noopener">💗 Follow @rajan_jha_update03</a>
+ </nav>
+</header>
+<section class="stage">
+ <h2 class="stageTitle" id="stageTitle">आपके लिए एक खास लिफाफा 💌</h2>
+ <p class="stageHint" id="stageHint">लिफाफे पर टैप करें और चारों गिफ्ट बाहर आएँगे</p>
+ <button class="envelopeButton" id="envelopeButton" type="button" aria-label="Open gift envelope">
+  <span class="envelope"></span><span class="flap"></span><span class="seal">♥</span><span class="envText">TAP TO OPEN</span>
+ </button>
+ <div id="giftArea">
+  <h2 class="stageTitle">🎉 आपके चार गिफ्ट तैयार हैं!</h2>
+  <p class="stageHint">किसी एक बॉक्स पर टैप करें — संबंधित वेबसाइट सीधे खुल जाएगी।</p>
+  <div class="grid">
+   <button class="gift" data-index="0" type="button">
+    <span class="logoWrap"><img src="https://www.google.com/s2/favicons?domain=rj-smart-billing.onrender.com&sz=128" alt="RJ Smart Billing logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">🧾</span></span>
+    <div class="giftNo">GIFT 01</div><h3>RJ Smart Billing</h3><p>Billing & daily account management</p><span class="tap">TAP TO OPEN ↗</span>
+   </button>
+   <button class="gift" data-index="1" type="button">
+    <span class="logoWrap"><img src="https://www.google.com/s2/favicons?domain=rj-intraday-trading.onrender.com&sz=128" alt="RJ Intraday Trading logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">📈</span></span>
+    <div class="giftNo">GIFT 02</div><h3>RJ Intraday Trading</h3><p>Stock market learning course</p><span class="tap">TAP TO OPEN ↗</span>
+   </button>
+   <button class="gift" data-index="2" type="button">
+    <span class="logoWrap"><img src="https://www.google.com/s2/favicons?domain=rajan03jha.github.io&sz=128" alt="QR Code Saathi logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">🔳</span></span>
+    <div class="giftNo">GIFT 03</div><h3>QR Code Saathi</h3><p>QR code tools and utilities</p><span class="tap">TAP TO OPEN ↗</span>
+   </button>
+   <button class="gift" data-index="3" type="button">
+    <span class="logoWrap"><img src="https://www.google.com/s2/favicons?domain=fire-safety-academy.onrender.com&sz=128" alt="Fire Safety Academy logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">🧯</span></span>
+    <div class="giftNo">GIFT 04</div><h3>Fire Safety Academy</h3><p>Fire safety learning and precautions</p><span class="tap">TAP TO OPEN ↗</span>
+   </button>
+  </div>
+ </div>
+</section>
+<p class="footer">Made with ❤️ by Rajan Jha</p>
+</main>
+<script>
+const urls=[
+ "https://rj-smart-billing.onrender.com/",
+ "https://rj-intraday-trading.onrender.com/",
+ "https://rajan03jha.github.io/Qr-Code-Saathi-/",
+ "https://fire-safety-academy.onrender.com/"
+];
+const envelope=document.getElementById("envelopeButton");
+const giftArea=document.getElementById("giftArea");
+let opened=false;
+envelope.addEventListener("click",()=>{
+ if(opened)return;opened=true;
+ envelope.classList.add("opened");
+ document.getElementById("stageTitle").textContent="आपके गिफ्ट बॉक्स आ गए! 🎁";
+ document.getElementById("stageHint").textContent="अब अपनी पसंद के गिफ्ट बॉक्स पर टैप करें";
+ setTimeout(()=>{envelope.style.display="none";giftArea.classList.add("show");burst();},550);
+});
+document.querySelectorAll(".gift").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+  const url=urls[Number(btn.dataset.index)];
+  // Direct same-tab navigation: no popup, no about:blank, no intermediate dialog.
+  window.location.assign(url);
+ });
+});
+function burst(){
+ const c=document.getElementById("spark"),ctx=c.getContext("2d"),dpr=window.devicePixelRatio||1;
+ c.width=innerWidth*dpr;c.height=innerHeight*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+ const parts=[];
+ for(let k=0;k<5;k++){const x=innerWidth*(.2+Math.random()*.6),y=innerHeight*(.15+Math.random()*.35),h=Math.random()*360;
+  for(let i=0;i<42;i++){const a=Math.PI*2*i/42,s=1.3+Math.random()*4;parts.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:55,h});}}
+ let frame=0;function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);for(const p of parts){p.x+=p.vx;p.y+=p.vy;p.vy+=.05;p.life--;ctx.globalAlpha=Math.max(0,p.life/55);ctx.fillStyle=`hsl(${p.h},100%,65%)`;ctx.beginPath();ctx.arc(p.x,p.y,2,0,Math.PI*2);ctx.fill();}ctx.globalAlpha=1;if(++frame<58)requestAnimationFrame(draw);else ctx.clearRect(0,0,c.width,c.height);}draw();
+}
+</script>
+</body>
+</html>
