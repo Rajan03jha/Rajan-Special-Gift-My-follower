@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#100b20">
+<title>Special Gift for My Followers | Rajan</title>
+<style>
+:root{--gold:#ffd36a;--ink:#100b20;--muted:#c8bfd5}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:#fff;background:radial-gradient(ellipse at 50% -10%,#54306d 0,#1c1230 42%,#090711 100%);min-height:100vh}
+button,a{font:inherit}
+.wrap{width:min(920px,100%);margin:auto;padding:24px 15px 50px}
+.hero{text-align:center;padding:17px 8px}
+.heroIcon{font-size:46px;filter:drop-shadow(0 0 18px #ffcf62)}
+h1{font-size:clamp(27px,6vw,46px);line-height:1.08;margin:10px 0;color:var(--gold);text-shadow:0 3px 22px #ff9f4355}
+.sub{max-width:650px;margin:12px auto;color:#eee4f4;line-height:1.65}
+.panel{background:#ffffff0b;border:1px solid #ffffff20;backdrop-filter:blur(12px);border-radius:23px;padding:19px;margin:17px 0;box-shadow:0 16px 45px #0005}
+h2{font-size:19px;margin:0 0 8px}
+.note{color:var(--muted);font-size:13px;line-height:1.55;margin:7px 0 15px}
+.socials{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.social{display:flex;align-items:center;justify-content:center;gap:9px;text-decoration:none;color:white;font-weight:700;padding:13px 10px;border-radius:14px;background:linear-gradient(135deg,#c13584,#833ab4)}
+.social.alt{background:linear-gradient(135deg,#f58529,#dd2a7b 55%,#8134af)}
+.confirm{display:flex;gap:10px;align-items:flex-start;margin-top:15px;color:#eee;font-size:14px;line-height:1.45}
+.confirm input{accent-color:#ffc95c;width:18px;height:18px;margin-top:2px;flex:none}
+.primary{border:0;border-radius:14px;padding:14px 18px;font-weight:800;color:#24142a;background:linear-gradient(135deg,#ffe69a,#ffad42);box-shadow:0 8px 25px #ffb13d35;cursor:pointer;width:100%;margin-top:14px;text-decoration:none;display:block;text-align:center}
+.primary:disabled{opacity:.4;cursor:not-allowed}
+#giftPanel[hidden]{display:none}
+.giftStage{border:1px solid #ffcf6260;border-radius:22px;padding:16px;background:linear-gradient(145deg,#2b1b3e,#120d1d);margin-top:15px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.gift{position:relative;text-align:center;padding:17px 10px;border:1px solid #ffcf6250;border-radius:18px;background:linear-gradient(145deg,#38234c,#171021);cursor:pointer;min-height:174px;color:#fff;transition:transform .2s,border-color .2s}
+.gift:hover{transform:translateY(-3px);border-color:var(--gold)}
+.gift .emoji{font-size:43px;display:block;filter:drop-shadow(0 0 13px #ffbb5577)}
+.num{font-size:12px;letter-spacing:2px;color:var(--gold);margin-top:6px}
+.gift h3{font-size:16px;margin:5px 0}
+.gift p{font-size:12px;color:var(--muted);line-height:1.4;margin:0}
+.tap{display:inline-block;margin-top:10px;color:var(--gold);font-size:12px;font-weight:800}
+.footer{text-align:center;color:#a99eb6;font-size:12px;padding:12px}
+.modal{position:fixed;inset:0;display:none;place-items:center;padding:16px;background:#080510ed;z-index:20;overflow:auto}
+.modal.show{display:grid}
+.dialog{width:min(440px,100%);text-align:center;padding:24px 20px;border-radius:25px;border:1px solid #ffd36a99;background:linear-gradient(145deg,#382044,#130e20);box-shadow:0 0 55px #ffb84b44;position:relative}
+.dialog .giftBox{font-size:76px;line-height:1.2;animation:pop .65s ease both;filter:drop-shadow(0 0 18px #ffbd58aa)}
+.dialog.opened .giftBox{animation:openBox .75s ease both}
+.dialog h2{font-size:25px;color:var(--gold);margin:9px 0}
+.dialog p{color:#e7ddeb;line-height:1.55;font-size:14px}
+.appIcon{font-size:48px;margin:8px auto}
+.close{margin-top:12px;background:none;border:1px solid #ffffff45;color:white;padding:10px 17px;border-radius:12px;cursor:pointer}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:25}
+@keyframes pop{0%{transform:scale(.2) rotate(-18deg);opacity:0}75%{transform:scale(1.14) rotate(7deg)}100%{transform:scale(1);opacity:1}}
+@keyframes openBox{0%{transform:scale(.65) rotate(-10deg)}55%{transform:scale(1.22) rotate(9deg)}100%{transform:scale(1) rotate(0)}}
+@media(max-width:430px){.wrap{padding:17px 12px 35px}.panel{padding:15px}.socials{grid-template-columns:1fr}.grid{gap:9px}.gift{min-height:168px;padding:15px 8px}.gift .emoji{font-size:38px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+<main class="wrap">
+<header class="hero">
+ <div class="heroIcon">🎁✨</div>
+ <h1>Special Gift for My Followers</h1>
+ <p class="sub">मेरे प्यारे Followers के लिए मेरी तरफ़ से 4 खास ऐप गिफ्ट! ❤️<br>अगर आपने अभी तक मुझे Follow नहीं किया है, तो पहले मेरे Instagram पेज खोलें। Follow करने के बाद अपना गिफ्ट अनलॉक करें।</p>
+</header>
+<section class="panel">
+ <h2>❤️ पहले Instagram पर Follow करें</h2>
+ <p class="note">नीचे दिए गए दोनों Instagram अकाउंट खोलें। फिर वापस इस पेज पर आएँ।</p>
+ <div class="socials">
+  <a class="social" href="https://www.instagram.com/rajan03jha?lqvp=dTVuaTV6Yno4d2Ew" target="_blank" rel="noopener">📸 Instagram – @rajan03jha</a>
+  <a class="social alt" href="https://www.instagram.com/rajan_jha_update03?evlk=NWoyOG4xMTFpdWd0" target="_blank" rel="noopener">💗 Instagram – @rajan_jha_update03</a>
+ </div>
+ <label class="confirm"><input type="checkbox" id="followCheck"><span>मैंने Instagram पेज खोलकर Follow कर लिया है और अब अपना गिफ्ट खोलना चाहता/चाहती हूँ।</span></label>
+ <button class="primary" id="unlockBtn" disabled>🔓 UNLOCK MY GIFTS</button>
+ <p class="note">ध्यान दें: Instagram Follow की पुष्टि यह वेबसाइट अपने-आप नहीं कर सकती। यह चेकबॉक्स आपकी स्वयं की पुष्टि है।</p>
+</section>
+<section class="panel" id="giftPanel" hidden>
+ <h2>🎉 आपका Gift Box तैयार है!</h2>
+ <p class="note">नीचे दिए गए चार गिफ्ट में से किसी एक पर टैप करें। गिफ्ट इसी स्क्रीन पर खुलेगा और फिर ऐप खोलने का बटन दिखाई देगा।</p>
+ <div class="giftStage">
+  <div class="grid">
+   <button class="gift" data-index="0" type="button"><span class="emoji">🎁</span><div class="num">GIFT 01</div><h3>RJ Smart Billing</h3><p>बिलिंग और रोज़मर्रा के हिसाब-किताब का ऐप</p><span class="tap">OPEN GIFT ↗</span></button>
+   <button class="gift" data-index="1" type="button"><span class="emoji">🎁</span><div class="num">GIFT 02</div><h3>RJ Intraday Trading</h3><p>स्टॉक मार्केट और Intraday सीखने का कोर्स</p><span class="tap">OPEN GIFT ↗</span></button>
+   <button class="gift" data-index="2" type="button"><span class="emoji">🎁</span><div class="num">GIFT 03</div><h3>QR Code Saathi</h3><p>QR Code से जुड़ा उपयोगी टूल</p><span class="tap">OPEN GIFT ↗</span></button>
+   <button class="gift" data-index="3" type="button"><span class="emoji">🎁</span><div class="num">GIFT 04</div><h3>Fire Safety Academy</h3><p>Fire Safety की जानकारी और सावधानियाँ</p><span class="tap">OPEN GIFT ↗</span></button>
+  </div>
+ </div>
+</section>
+<div class="footer">Made with ❤️ by Rajan Jha</div>
+</main>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+ <div class="dialog" id="dialog">
+  <div class="giftBox" id="modalEmoji">🎁</div>
+  <h2 id="modalTitle">आपका गिफ्ट खुल गया!</h2>
+  <div class="appIcon" id="appIcon">🧾</div>
+  <p id="modalText"></p>
+  <a class="primary" id="openApp" href="#" target="_blank" rel="noopener">APP OPEN करें ↗</a>
+  <p class="note">ऐप खुलने के बाद ब्राउज़र के मेन्यू (⋮) में “Add to Home screen” या “Install” विकल्प दिखे तो उससे इसे फोन में जोड़ सकते हैं।</p>
+  <button class="close" id="closeModal" type="button">वापस गिफ्ट पर जाएँ</button>
+ </div>
+</div>
+<script>
+const gifts=[
+ {name:"RJ Smart Billing",url:"https://rj-smart-billing.onrender.com/",icon:"🧾",desc:"बिलिंग और रोज़मर्रा के हिसाब-किताब के लिए RJ Smart Billing खोलें।"},
+ {name:"RJ Intraday Trading",url:"https://rj-intraday-trading.onrender.com/",icon:"📈",desc:"स्टॉक मार्केट की जानकारी और Intraday Trading सीखने के लिए RJ Intraday Trading खोलें।"},
+ {name:"QR Code Saathi",url:"https://rajan03jha.github.io/Qr-Code-Saathi-/",icon:"🔳",desc:"QR Code से जुड़ी सुविधाओं के लिए QR Code Saathi खोलें।"},
+ {name:"Fire Safety Academy",url:"https://fire-safety-academy.onrender.com/",icon:"🧯",desc:"Fire Safety, बचाव और सावधानियों के बारे में सीखने के लिए Academy खोलें।"}
+];
+const check=document.getElementById("followCheck"),unlock=document.getElementById("unlockBtn"),giftPanel=document.getElementById("giftPanel");
+check.addEventListener("change",()=>unlock.disabled=!check.checked);
+unlock.addEventListener("click",()=>{giftPanel.hidden=false;giftPanel.scrollIntoView({behavior:"smooth",block:"start"});unlock.textContent="🎉 GIFTS UNLOCKED";});
+const modal=document.getElementById("modal"),dialog=document.getElementById("dialog");
+document.querySelectorAll(".gift").forEach(btn=>btn.addEventListener("click",()=>{
+ const g=gifts[Number(btn.dataset.index)];
+ document.getElementById("modalEmoji").textContent="🎁";
+ document.getElementById("appIcon").textContent=g.icon;
+ document.getElementById("modalTitle").textContent="🎉 "+g.name+" खुल गया!";
+ document.getElementById("modalText").textContent="आपका "+g.name+" गिफ्ट खुल गया है! "+g.desc;
+ const link=document.getElementById("openApp");
+ link.href=g.url; // One real link only; no blank popup or duplicate tab.
+ dialog.classList.remove("opened");modal.classList.add("show");
+ requestAnimationFrame(()=>{dialog.classList.add("opened");fireworks();});
+}));
+document.getElementById("closeModal").addEventListener("click",()=>modal.classList.remove("show"));
+modal.addEventListener("click",e=>{if(e.target===modal)modal.classList.remove("show")});
+function fireworks(){
+ const c=document.getElementById("fx"),ctx=c.getContext("2d"),dpr=window.devicePixelRatio||1;
+ c.width=innerWidth*dpr;c.height=innerHeight*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+ const ps=[];
+ for(let k=0;k<6;k++){const x=Math.random()*innerWidth,y=innerHeight*(.2+Math.random()*.42),h=Math.random()*360;
+  for(let i=0;i<54;i++){const a=2*Math.PI*i/54,s=1.5+Math.random()*4.5;ps.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:75,h,size:1+Math.random()*2});}}
+ let f=0;function draw(){ctx.clearRect(0,0,innerWidth,innerHeight);for(const p of ps){p.x+=p.vx;p.y+=p.vy;p.vy+=.045;p.vx*=.985;p.life--;ctx.globalAlpha=Math.max(0,p.life/75);ctx.fillStyle=`hsl(${p.h},100%,65%)`;ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill();}ctx.globalAlpha=1;if(++f<78)requestAnimationFrame(draw);else ctx.clearRect(0,0,c.width,c.height);}draw();
+}
+</script>
+</body>
+</html>
