@@ -50,6 +50,14 @@ h1{font-size:clamp(27px,6vw,45px);line-height:1.12;color:var(--gold);margin:12px
 .gift h3{font-size:16px;margin:5px 0}
 .gift p{font-size:12px;line-height:1.4;color:var(--muted);margin:0}
 .tap{display:inline-block;margin-top:10px;color:var(--gold);font-size:11px;font-weight:900;letter-spacing:.7px}
+.visitWrap{margin:2px auto 14px;max-width:430px}
+.visitGrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.visitBox{padding:11px 8px;border:1px solid #ffd36a55;border-radius:16px;background:linear-gradient(135deg,#ffd36a1c,#ffffff08);text-align:center}
+.visitBox.ig{border-color:#dd2a7b88;background:linear-gradient(135deg,#dd2a7b26,#8134af14)}
+.visitNum{font-size:28px;font-weight:900;color:var(--gold);line-height:1.1;font-variant-numeric:tabular-nums;text-shadow:0 0 14px #ffbd5566}
+.visitLbl{font-size:12px;line-height:1.35;color:#eee4f4;margin-top:3px}
+.visitThanks{margin:9px 4px 0;font-size:12px;line-height:1.5;color:#eee4f4}
+.visitThanks b{color:var(--gold)}
 .footer{text-align:center;color:#a99eb6;font-size:12px;margin:18px 0 0}
 #spark{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9}
 @media(max-width:430px){.wrap{padding:16px 11px 32px}.stage{padding:17px 10px 20px;min-height:350px}.grid{gap:9px}.gift{padding:14px 8px;min-height:180px}.logoWrap{width:60px;height:60px}.social{font-size:12px}}
@@ -60,6 +68,13 @@ h1{font-size:clamp(27px,6vw,45px);line-height:1.12;color:var(--gold);margin:12px
 <canvas id="spark"></canvas>
 <main class="wrap">
 <header>
+ <div class="visitWrap" aria-live="polite">
+  <div class="visitGrid">
+   <div class="visitBox ig"><div class="visitNum" id="visitIg">…</div><div class="visitLbl">📸 Instagram से आए लोग</div></div>
+   <div class="visitBox"><div class="visitNum" id="visitOther">…</div><div class="visitLbl">▶️ YouTube</div></div>
+  </div>
+  <p class="visitThanks"><b>इस पेज पर विजिट करने के लिए आप सभी का दिल से धन्यवाद! 🙏</b> Thank you!</p>
+ </div>
  <span class="kicker">A LITTLE THANK YOU FROM RAJAN</span>
  <h1>🎁 Special Gift for My Followers</h1>
  <p class="intro">मेरे प्यारे Followers के लिए मेरी तरफ़ से चार खास ऐप गिफ्ट! ❤️<br>चाहें तो पहले मेरे Instagram पेज देखिए, फिर बीच में बने लिफाफे पर टैप करके अपना गिफ्ट खोलिए।</p>
@@ -133,6 +148,31 @@ document.querySelectorAll(".logoWrap").forEach(box=>{
  };
  next();
 });
+
+/* VISITOR COUNTER (Abacus – free, बिना signup)
+   दो गिनतियाँ: Instagram से आए / अन्य। एक डिवाइस सिर्फ़ एक बार गिना जाता है। */
+(function(){
+ const base="https://abacus.jasoncameron.dev/",ns="rajan03jha-gifts";
+ const el={ig:document.getElementById("visitIg"),other:document.getElementById("visitOther")};
+ const fromIg=/instagram/i.test(navigator.userAgent)||/instagram\.com/i.test(document.referrer)||/[?&](utm_source|source)=(ig|instagram)/i.test(location.search);
+ const mine=fromIg?"ig":"other";
+ let counted=false;
+ try{counted=localStorage.getItem("rj_gift_counted")!==null;}catch(e){}
+ function call(kind,which){
+  return fetch(base+kind+"/"+ns+"/visitors-"+which).then(r=>{if(!r.ok)throw 0;return r.json();}).then(d=>{const v=Number(d.value);if(!isFinite(v))throw 0;return v;});
+ }
+ function show(which,target){
+  const t0=performance.now(),dur=900;
+  (function tick(t){const p=Math.min(1,(t-t0)/dur);el[which].textContent=Math.round(target*p).toLocaleString("en-IN");if(p<1)requestAnimationFrame(tick);})(t0);
+ }
+ ["ig","other"].forEach(which=>{
+  const kind=(!counted&&which===mine)?"hit":"get";
+  call(kind,which)
+   .catch(()=>kind==="get"?0:Promise.reject())
+   .then(v=>{show(which,v);if(kind==="hit"){try{localStorage.setItem("rj_gift_counted",mine);}catch(e){}}})
+   .catch(()=>{el[which].textContent="🎉";});
+ });
+})();
 
 function burst(){
  const c=document.getElementById("spark"),ctx=c.getContext("2d"),dpr=window.devicePixelRatio||1;
